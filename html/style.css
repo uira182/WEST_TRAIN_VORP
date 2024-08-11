@@ -5,7 +5,7 @@ body {
 }
 
 #teleportMenu {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,23 +13,68 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
+    background-image: url('./images/background.jpg');
+    background-size: cover;
     color: white;
     text-align: center;
+    width: 600px;
+    height: 500px;
+}
+
+.image-ticket {
+    background-image: url('./images/ticket.png');
+    background-size: cover;
+    text-align: center;
+    display: block;
     width: 300px;
+    height: 142.5px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.image-ticket:hover {
+    opacity: 1;
+}
+
+.text-ticket {
+    font-family: Times New Roman, sans-serif;
+    font-size: 35px;
+    color: #302e2e;
+    padding-top: 50px;
 }
 
 button {
+    position:absolute;
+    right: 10px;
+    top: 10px;
+    padding: 10px;
     display: block;
     margin: 10px auto;
     padding: 10px;
-    background-color: #3498db;
+    background-color: #f01111;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #db3434;
+}
+#videoContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Certifique-se de que está acima de outros elementos */
+}
+
+#player {
+    width: 100%;
+    height: 100%;
 }

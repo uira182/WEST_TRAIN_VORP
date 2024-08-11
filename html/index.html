@@ -4,96 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleport Menu</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        #teleportMenu {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-            width: 300px;
-        }
-
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="teleportMenu">
-        <h1>Teleport Menu</h1>
-        <button id="valentineBtn">Valentine</button>
-        <button id="rhodesBtn">Rhodes</button>
-        <button id="closeBtn">Fechar</button>
+        <h1 style="color: #000;">ESTAÇÃO DE TREM</h1>
+        <div id="valentineBtn" class="image-ticket">
+            <h1 class="text-ticket">Valentine $1.5</h1>
+        </div>
+        <div id="rhodesBtn" class="image-ticket">
+            <h1 class="text-ticket">Rhodes $1.5</h1>
+        </div><br />
+        <button id="closeBtn">X</button>
     </div>
-    <script>
-        window.addEventListener('message', function(event) {
-            if (event.data.action === 'openMenu') {
-                document.getElementById('teleportMenu').style.display = 'block';
-                if (event.data.location === 'valentine') {
-                    document.getElementById('valentineBtn').style.display = 'none';
-                    document.getElementById('rhodesBtn').style.display = 'block';
-                } else if (event.data.location === 'rhodes') {
-                    document.getElementById('valentineBtn').style.display = 'block';
-                    document.getElementById('rhodesBtn').style.display = 'none';
-                }
-            } else if (event.data.action === 'closeMenu') {
-                document.getElementById('teleportMenu').style.display = 'none';
-            }
-        });
 
-        document.getElementById('valentineBtn').addEventListener('click', function() {
-            fetch(`https://${GetParentResourceName()}/teleport`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({ location: 'valentine' })
-            });
-        });
+    <div id="videoContainer">
+        <div id="player"></div>
+    </div>
 
-        document.getElementById('rhodesBtn').addEventListener('click', function() {
-            fetch(`https://${GetParentResourceName()}/teleport`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({ location: 'rhodes' })
-            });
-        });
-
-        document.getElementById('closeBtn').addEventListener('click', function() {
-            fetch(`https://${GetParentResourceName()}/close`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({})
-            });
-        });
-    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
